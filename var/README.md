@@ -1,0 +1,1 @@
+Your Slim Framework application's log files and template cache will be written to this directory. DO NOT manually add files or directories here; they will be created for you when you deploy this app to Pagodabox.

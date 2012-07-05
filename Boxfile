@@ -1,0 +1,56 @@
+global:
+    env:
+        - SLIM_ENV: development
+web1:
+    # App settings
+    name: slim_app
+    shared_writable_dirs:
+        - var/logs
+        - var/cache
+
+    # Apache settings
+    document_root: public
+    apache_log_level: warn
+
+    # PHP settings
+    php_version: 5.3.10
+    php_extensions:
+        - apc
+        - curl
+        - fileinfo
+        - gd
+        - hash
+        - iconv
+        - json
+        - mbstring
+        - mcrypt
+        - mysql
+        - oauth
+        - pdo
+        - pdo_mysql
+        - pdo_sqlite
+        - session
+        - simplexml
+        - yaml
+        - zip
+    php_error_reporting: 30719 # Same as E_ALL
+    php_display_errors: "1"
+    php_short_open_tag: "0"
+    php_default_mimetype: "text/html"
+    php_date_timezone: "US/Eastern"
+    php_default_locale: "en_US"
+    php_max_execution_time: 30
+    php_max_input_time: 60
+    php_post_max_size: "8M"
+    php_file_uploads: "1"
+    php_upload_max_filesize: "2M"
+    php_max_file_uploads: 20
+
+    # Install Composer dependencies
+    after_build:
+        - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install"
+
+    # Clear template cache and old logs
+    after_deploy:
+        - "rm -Rf var/cache/*"
+        - "rm -Rf var/logs/*"
