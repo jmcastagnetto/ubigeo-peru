@@ -13,15 +13,14 @@ $app = new \Slim\Slim(array(
 ));
 
 // Prepare view
-$twigView = new \Slim\Extras\Views\Twig();
-$twigView->twigOptions = array(
+\Slim\Extras\Views\Twig::$twigOptions = array(
     'charset' => 'utf-8',
     'cache' => realpath('../var/cache'),
     'auto_reload' => true,
     'strict_variables' => false,
     'autoescape' => true
 );
-$app->view($twigView);
+$app->view(new \Slim\Extras\Views\Twig());
 
 // Define routes
 $app->get('/', function () use ($app) {
