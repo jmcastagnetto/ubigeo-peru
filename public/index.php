@@ -2,18 +2,18 @@
 require '../vendor/autoload.php';
 
 // Prepare app
-$app = new Slim(array(
+$app = new \Slim\Slim(array(
     'templates.path' => '../templates',
     'log.level' => 4,
     'log.enabled' => true,
-    'log.writer' => new Log_FileWriter(array(
+    'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter(array(
         'path' => '../var/logs',
         'name_format' => 'y-m-d'
     ))
 ));
 
 // Prepare view
-$twigView = new View_Twig();
+$twigView = new \Slim\Extras\Views\Twig();
 $twigView->twigOptions = array(
     'charset' => 'utf-8',
     'cache' => realpath('../var/cache'),

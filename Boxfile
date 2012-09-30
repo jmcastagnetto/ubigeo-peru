@@ -1,6 +1,6 @@
 global:
     env:
-        - SLIM_ENV: development
+        - SLIM_MODE: development
 web1:
     # App settings
     name: slim_app
