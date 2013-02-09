@@ -9,7 +9,7 @@ $app->get('/ubigeo/lugar/:dpto(/:prov(/:dist))', function ($dpto, $prov='', $dis
             $stm = $db->prepare('select * from ubigeo_equiv where nombre_completo = :lugar');
             $stm->bindValue(':lugar', strtoupper("${dpto}/${prov}/${dist}"), PDO::PARAM_STR);
             $res = $stm->execute()->fetchAll();
-            if ($res === false) {
+            if (size($res) === 0) {
                 $app->getLog()->error('3:badlocation:'.$dpto.'/'.$prov.'/'.$dist);
                 $res = array('error'=>3, 'msg'=>'no existe el lugar que ha indicado');
             }
