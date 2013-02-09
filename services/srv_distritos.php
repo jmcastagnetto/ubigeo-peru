@@ -9,7 +9,7 @@ $app->get('/ubigeo/distritos/:dpto/:prov', function ($dpto, $prov) use ($app, $d
             $prov = strtoupper($prov);
             $rows = $db->query("select codigo_reniec from ubigeo_equiv where nombre_completo = '${dpto}/${prov}/'");
             $dpres = $rows->fetchAll();
-            if (size($dpres) > 0) {
+            if (count($dpres) > 0) {
                 $dpcode = $dpres['codigo_reniec'];
                 preg_match('/(\d{4})\d\d/', $dpcode, $reg);
                 $prefix = $reg[1];
