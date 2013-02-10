@@ -27,9 +27,10 @@ web1:
     php_error_reporting: 30719 # Same as E_ALL
     php_display_errors: "1"
     php_short_open_tag: "0"
-    php_default_mimetype: "text/html"
-    php_date_timezone: "US/Eastern"
+    php_default_mimetype: "application/json"
+    php_date_timezone: "America/Lima"
     php_default_locale: "en_US"
+	php_default_charset: "utf-8"
     php_max_execution_time: 30
     php_max_input_time: 60
     php_post_max_size: "8M"

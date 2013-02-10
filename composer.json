@@ -1,14 +1,13 @@
 {
-    "name": "slim/pagodabox-quickstart",
-    "description": "The official Slim Framework quickstart for Pagodabox",
-    "keywords": ["microframework","rest","router"],
-    "homepage": "http://github.com/codeguy/Slim-Pagodabox-Quickstart",
-    "license": "MIT",
+    "name": "ubigeo-peru",
+    "description": "Searches for UBIGEO codes",
+    "keywords": ["Peru","rest","ubigeo"],
+    "homepage": "http://github.com/jmcastagnetto/ubigeo-peru",
+    "license": "BSD 2-clause",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "Jesus M. Castagnetto",
+            "homepage": "http://www.castagnetto.com/"
         }
     ],
     "require": {
