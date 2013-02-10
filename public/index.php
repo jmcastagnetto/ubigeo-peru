@@ -14,7 +14,7 @@ $app = new \Slim\Slim(
         )
     )
 );
-$app->contentType('application/json');
+$app->contentType('application/json; charset=utf-8');
 
 foreach ($active_services as $service) {
     include_once '../services/srv_'.$service.'.php';
