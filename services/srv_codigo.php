@@ -21,14 +21,13 @@ $app->get('/ubigeo/codigo/:code(/:source)', function ($code, $source='reniec') u
                 }
                 $stm = $db->prepare($sql);
                 $stm->bindValue(':codigo', $code, PDO::PARAM_STR);
-                $rows = $stm->execute();
-                $res = array();
-                while ($row = $rows->fetchAll()){
-                    $res[] = $row;
-                }
-                if (empty($res)) {
+                $stm->execute();
+                $rows = $stm->fetchAll();
+                if (empty($rows)) {
                     $app->getLog()->error('1:badcode:'.$code.':'.$source);
                     $res = array('error'=>1, 'msg'=>'no existe el código de ubigeo que ha indicado');
+                } else {
+                    $res = $rows;
                 }
             } else {
                 $app->getLog()->error('2:badsource:'.$code.':'.$source);
