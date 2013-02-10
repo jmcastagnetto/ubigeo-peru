@@ -16,18 +16,9 @@ web1:
     php_version: 5.3.10
     php_extensions:
         - apc
-        - curl
-        - fileinfo
-        - gd
-        - hash
-        - iconv
         - json
         - mbstring
-        - mcrypt
-        - mysql
-        - oauth
         - pdo
-        - pdo_mysql
         - pdo_sqlite
         - session
         - simplexml
