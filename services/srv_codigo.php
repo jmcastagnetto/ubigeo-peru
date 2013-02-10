@@ -2,7 +2,7 @@
 $service_doc['codigo|code'] =  array(
     'en' => array (
         'pattern' => '/ubigeo/code/NNNNNN[/source] (N=0..9; source=reniec|inei|any)',
-        'description' => 'Searches for the place with ubigeo code NNNNNN, in the source requested. '
+        'description' => 'Searches for the place with ubigeo code NNNNNN, from the source requested. '
                          .'Valid sources: reniec (default), inei, any',
     ),
     'es' => array(

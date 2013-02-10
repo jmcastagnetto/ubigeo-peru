@@ -6,9 +6,9 @@ $service_doc['lugar|place'] =  array(
                          .'/DEPARTMENT[/PROVINCE[/DISTRICT]] (the last 2 parameters are optional)',
     ),
     'es' => array(
-        'patron' => '/ubigeo/lugar/DEPARTAMENTO[/PROVINCIA][/DISTRITO]',
+        'patron' => '/ubigeo/lugar/DEPARTAMENTO[/PROVINCIA[/DISTRITO]]',
         'descripción' => 'Busca los códigos de ubigeo (reniec, inei) para el lugar indicado por '
-                        .'el DEPARTAMENTO/PROVINCIA/DISTRITO (los últimos dos parámetros son opcionales)',
+                        .'el /DEPARTAMENTO/PROVINCIA/DISTRITO (los últimos dos parámetros son opcionales)',
     )
 );
 
