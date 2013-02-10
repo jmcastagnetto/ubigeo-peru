@@ -21,7 +21,14 @@ foreach ($active_services as $service) {
 }
 
 $app->notFound(function () use ($service_doc) {
-            echo json_encode(array('services'=>$service_doc));
+    echo json_encode(
+        array(
+            'description' => array( 
+                'en' => "REST services to query for Peru's UBIGEO (geographical location code)",
+                'es' => "Servicios REST para buscar los códigos de UBIGEO Peruanos",
+            ),
+            'services' => $service_doc
+        ));
         });
 
 try {
