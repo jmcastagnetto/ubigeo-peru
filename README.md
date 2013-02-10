@@ -24,13 +24,14 @@ All the output is in JSON with utf-8 character encoding
 ## Services
 
 * code:
-  * /ubigeo/code/NNNNNN[/source] (N=0..9; source=reniec|inei|any)
-  * Searches for the place with ubigeo code NNNNNN, from the source requested. Valid sources: reniec (default), inei, any
+  * /ubigeo/code/NNNNNN{/source} (N=0..9; source=reniec|inei|any)
+  * Searches for the place with ubigeo code NNNNNN, from the source requested. 
+    Valid sources: reniec (default), inei, any
 
 * place:
-  * /ubigeo/place/DEPARTMENT[/PROVINCE[/DISTRICT]]
+  * /ubigeo/place/DEPARTMENT{/PROVINCE{/DISTRICT}}
   * Searches for the ubigeo codes (reniec, inei) for the place given as 
-    /DEPARTMENT[/PROVINCE[/DISTRICT]] (the last 2 parameters are optional)
+    /DEPARTMENT{/PROVINCE{/DISTRICT}} (the last 2 parameters are optional)
 
 * like:
   * /ubigeo/like/PARTIALNAME
@@ -79,7 +80,7 @@ All the output is in JSON with utf-8 character encoding
   * http://ubigeo-pe.pagodabox.com/ubigeo/districts/callao/callao
 
 * Show all places that contain the fragment
-  * http://ubigeo-pe.pagodabox.com/ubigeo/parecido/rosa
+  * http://ubigeo-pe.pagodabox.com/ubigeo/like/rosa
 
 
 # ubigeo-peru: Servicios REST para la búsqueda de UBIGEO
@@ -105,12 +106,12 @@ Todas las salidas estan en JSON con codificación de caracteres utf-8
 ## Servicios
 
 * código:
-  * /ubigeo/codigo/NNNNNN[/fuente] (N=0..9; fuente=reniec|inei|cualquiera)
+  * /ubigeo/codigo/NNNNNN{/fuente} (N=0..9; fuente=reniec|inei|cualquiera)
   * Busca el lugar con código de ubigeo NNNNNN, en la fuente indicada. 
     Fuentes posibles: reniec (usada por defecto), inei, cualquiera
 
 * lugar:
-  * /ubigeo/lugar/DEPARTAMENTO[/PROVINCIA[/DISTRITO]]
+  * /ubigeo/lugar/DEPARTAMENTO{/PROVINCIA{/DISTRITO}}
   * Busca los códigos de ubigeo (reniec, inei) para el lugar indicado por el
     /DEPARTAMENTO/PROVINCIA/DISTRITO (los últimos dos parámetros son opcionales)
 
