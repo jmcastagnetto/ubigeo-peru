@@ -8,7 +8,8 @@ $service_doc['lugar'] = array(
 $app->get('/ubigeo/lugar/:dpto(/:prov(/:dist))', function ($dpto, $prov='', $dist='') use ($app, $db) {
             $stm = $db->prepare('select * from ubigeo_equiv where nombre_completo = :lugar');
             $stm->bindValue(':lugar', strtoupper("${dpto}/${prov}/${dist}"), PDO::PARAM_STR);
-            $res = $stm->execute()->fetchAll();
+            $stm->execute();
+            $res = $stm->fetchAll();
             if (count($res) === 0) {
                 $app->getLog()->error('3:badlocation:'.$dpto.'/'.$prov.'/'.$dist);
                 $res = array('error'=>3, 'msg'=>'no existe el lugar que ha indicado');
@@ -16,7 +17,7 @@ $app->get('/ubigeo/lugar/:dpto(/:prov(/:dist))', function ($dpto, $prov='', $dis
             echo json_encode(array(
                     'ubigeo/lugar'=> array(
                         'ruta' => "/ubigeo/lugar/${dpto}/${prov}/${dist}",
-                        'resultado' => $res
+                        'resultado' => $res[0]
                         )
                     ));
         })->name('lugar');

@@ -9,14 +9,13 @@ $service_doc['parecido'] = array(
 $app->get('/ubigeo/parecido/:name', function ($name) use ($app, $db) {
             $stm = $db->prepare('select * from ubigeo_equiv where nombre like :name');
             $stm->bindValue(':name', strtoupper("%${name}%"), PDO::PARAM_STR);
-            $rows = $stm->execute();
-            $res = array();
-            while ($row = $rows->fetchAll()){
-                $res[] = $row;
-            }
-            if (empty($res)) {
+            $stm->execute();
+            $rows = $stm->fetchAll();
+            if (empty($rows)) {
                 $app->getLog()->error('4:badsimilar:'.$name);
                 $res = array('error'=>4, 'msg'=>'no existe un lugar con nombre parecido a '.$name);
+            } else {
+                $res = $rows;
             }
             echo json_encode(array(
                     'ubigeo/parecido'=> array(

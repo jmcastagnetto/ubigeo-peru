@@ -9,7 +9,7 @@ $app->get('/ubigeo/provincias/:dpto', function ($dpto) use ($app, $db)  {
             $rows = $db->query("select codigo_reniec from ubigeo_equiv where nombre_completo = '${dpto}//'");
             $dptores = $rows->fetchAll();
             if (count($dptores) > 0) {;
-                $dptocode = $dptores['codigo_reniec'];
+                $dptocode = $dptores[0]['codigo_reniec'];
                 preg_match('/(\d\d)\d{4}/', $dptocode, $reg);
                 $prefix = $reg[1];
                 $rows = $db->query("select * from ubigeo_equiv where codigo_reniec like '${prefix}%00' and codigo_reniec <> '${dptocode}'");
