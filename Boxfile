@@ -1,6 +1,6 @@
 global:
     env:
-        - SLIM_MODE: development
+        - SLIM_MODE: production
 web1:
     # App settings
     name: ubigeo-peru
