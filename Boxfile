@@ -30,7 +30,7 @@ web1:
     php_default_mimetype: "application/json"
     php_date_timezone: "America/Lima"
     php_default_locale: "en_US"
-	php_default_charset: "utf-8"
+    php_default_charset: "utf-8"
     php_max_execution_time: 30
     php_max_input_time: 60
     php_post_max_size: "8M"
