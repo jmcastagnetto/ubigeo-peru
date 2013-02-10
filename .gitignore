@@ -1,3 +1,5 @@
 /var/*
 !/var/README.md
 .DS_STORE
+vendor
+vendor/*
