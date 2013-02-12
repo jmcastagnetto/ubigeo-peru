@@ -3,3 +3,5 @@
 .DS_STORE
 vendor
 vendor/*
+.c9revisions
+.c9revisions/*
