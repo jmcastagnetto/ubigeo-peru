@@ -24,7 +24,7 @@ foreach ($active_services as $service) {
 $app->notFound(function () use ($service_doc) {
     echo json_encode(
         array(
-            'description' => array( 
+            'description' => array(
                 'en' => "REST services to query for Peru's UBIGEO (geographical location code)",
                 'es' => "Servicios REST para buscar los códigos de UBIGEO Peruanos",
             ),
@@ -37,4 +37,3 @@ try {
 } catch (Slim_Exception_Stop $e) {
     // do nothing
 }
-
