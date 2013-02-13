@@ -5,3 +5,4 @@ vendor
 vendor/*
 .c9revisions
 .c9revisions/*
+composer.lock
