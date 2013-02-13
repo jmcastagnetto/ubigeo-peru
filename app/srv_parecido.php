@@ -13,7 +13,7 @@ $service_doc['parecido|like'] =  array(
 );
 
 $fparecido = function ($name) use ($app, $db) {
-    $stm = $db->prepare('select * from ubigeo_equiv where nombre like :name');
+    $stm = $db->prepare('select * from ubigeo where nombre like :name');
     $stm->bindValue(':name', strtoupper("%${name}%"), PDO::PARAM_STR);
     $stm->execute();
     $res = $stm->fetchAll();

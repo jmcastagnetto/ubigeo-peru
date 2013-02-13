@@ -11,7 +11,7 @@ $service_doc['departamentos|departments'] =  array(
 );
 
 $fdepas = function () use ($app, $db) {
-    $stmt = $db->query("select * from ubigeo_equiv where nombre_completo like '%//'");
+    $stmt = $db->query("select * from ubigeo where nombreCompleto like '%//'");
     $res = $stmt->fetchAll();
     echo json_encode(array(
                     $app->request()->getResourceUri() => $res

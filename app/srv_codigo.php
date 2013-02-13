@@ -14,17 +14,17 @@ $service_doc['codigo|code'] =  array(
 
 $fcode = function ($ucode, $source='reniec') use ($app, $db)  {
     if (in_array($source, array('reniec', 'inei', 'cualquiera'))) {
-        $sql = 'select * from ubigeo_equiv where ';
+        $sql = 'select * from ubigeo where ';
         switch ($source) {
             case 'reniec' :
-                $sql .= ' codigo_reniec = :codigo';
+                $sql .= ' reniec = :codigo';
                 break;
             case 'inei' :
-                $sql .= ' codigo_inei = :codigo';
+                $sql .= ' inei = :codigo';
                 break;
             case 'cualquiera' :
             case 'any' :
-                $sql .= ' codigo_inei = :codigo or codigo_reniec = :codigo';
+                $sql .= ' inei = :codigo or reniec = :codigo';
                 break;
         }
         $stm = $db->prepare($sql);

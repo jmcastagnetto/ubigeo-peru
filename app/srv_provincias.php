@@ -12,13 +12,13 @@ $service_doc['provincias|provinces'] =  array(
 
 $fprovs = function ($dpt) use ($app, $db)  {
     $dpto = strtoupper($dpt);
-    $rows = $db->query("select codigo_reniec from ubigeo_equiv where nombre_completo = '${dpto}//'");
+    $rows = $db->query("select reniec from ubigeo where nombreCompleto = '${dpto}//'");
     $dptores = $rows->fetchAll();
     if (count($dptores) > 0) {;
-        $dptocode = $dptores[0]['codigo_reniec'];
+        $dptocode = $dptores[0]['reniec'];
         preg_match('/(\d\d)\d{4}/', $dptocode, $reg);
         $prefix = $reg[1];
-        $stmt = $db->query("select * from ubigeo_equiv where codigo_reniec like '${prefix}%00' and codigo_reniec <> '${dptocode}'");
+        $stmt = $db->query("select * from ubigeo where reniec like '${prefix}%00' and reniec <> '${dptocode}'");
         $res = $stmt->fetchAll();
     } else {
         $app->getLog()->error('5:baddpto:'.$dpto);

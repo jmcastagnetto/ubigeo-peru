@@ -13,7 +13,7 @@ $service_doc['lugar|place'] =  array(
 );
 
 $flugar = function ($dpt, $prov='', $dist='') use ($app, $db) {
-    $stm = $db->prepare('select * from ubigeo_equiv where nombre_completo = :lugar');
+    $stm = $db->prepare('select * from ubigeo where nombreCompleto = :lugar');
     $stm->bindValue(':lugar', strtoupper("${dpt}/${prov}/${dist}"), PDO::PARAM_STR);
     $stm->execute();
     $res = $stm->fetchAll();
