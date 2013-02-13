@@ -1,6 +1,6 @@
 <?php
 require '../vendor/autoload.php';
-require_once '../services/services_config.php';
+require '../app/config.php';
 
 $app = new \Slim\Slim(
     array(
@@ -21,8 +21,13 @@ foreach ($active_services as $service) {
     include_once '../services/srv_'.$service.'.php';
 }
 
-$app->notFound(function () use ($service_doc) {
-    echo json_encode(
+$app->notFound(function () use ($app, $service_doc) {
+    $req = $app->request();
+    if ($req->getMethod() !== 'GET') {
+        $app->halt(405);
+    } else {
+
+    return json_encode(
         array(
             'description' => array(
                 'en' => "REST services to query for Peru's UBIGEO (geographical location code)",
@@ -30,6 +35,7 @@ $app->notFound(function () use ($service_doc) {
             ),
             'services' => $service_doc
         ));
+    }
         });
 
 try {
