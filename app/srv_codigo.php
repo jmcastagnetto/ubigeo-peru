@@ -13,7 +13,7 @@ $service_doc['codigo|code'] =  array(
 );
 
 $fcode = function ($ucode, $source='reniec') use ($app, $db)  {
-    if (in_array($source, array('reniec', 'inei', 'cualquiera'))) {
+    if (in_array($source, array('reniec', 'inei', 'cualquiera', 'any'))) {
         $sql = 'select * from ubigeo where ';
         switch ($source) {
             case 'reniec' :
