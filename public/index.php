@@ -18,7 +18,7 @@ $app->contentType('application/json; charset=utf-8');
 $app->expires('+1 month');
 
 foreach ($active_services as $service) {
-    include_once '../services/srv_'.$service.'.php';
+    include_once '../app/srv_'.$service.'.php';
 }
 
 $app->notFound(function () use ($app, $service_doc) {
@@ -26,8 +26,7 @@ $app->notFound(function () use ($app, $service_doc) {
     if ($req->getMethod() !== 'GET') {
         $app->halt(405);
     } else {
-
-    return json_encode(
+        echo json_encode(
         array(
             'description' => array(
                 'en' => "REST services to query for Peru's UBIGEO (geographical location code)",
