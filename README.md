@@ -172,6 +172,8 @@ Todas las salidas estan en JSON con codificación de caracteres utf-8
 
 ## License and Copyright
 
+**BSD 2-clause license**
+
 Copyright (c) 2013, Jesus M. Castagnetto
 All rights reserved.
 
