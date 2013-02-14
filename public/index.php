@@ -23,9 +23,7 @@ foreach ($active_services as $service) {
 
 $app->notFound(function () use ($app, $service_doc) {
     $req = $app->request();
-    if ($req->isGet() {
-        $app->halt(405);
-    } else {
+    if ($req->isGet()) {
         echo json_encode(
         array(
             'description' => array(
@@ -34,8 +32,10 @@ $app->notFound(function () use ($app, $service_doc) {
             ),
             'services' => $service_doc
         ));
+    } else {
+        $app->halt(405);
     }
-        });
+});
 
 try {
     $app->run();
