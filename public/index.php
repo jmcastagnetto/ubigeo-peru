@@ -23,7 +23,7 @@ foreach ($active_services as $service) {
 
 $app->notFound(function () use ($app, $service_doc) {
     $req = $app->request();
-    if ($req->getMethod() !== 'GET') {
+    if ($req->isGet() {
         $app->halt(405);
     } else {
         echo json_encode(
