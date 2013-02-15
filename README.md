@@ -13,9 +13,9 @@ Officially, the UBIGEO codes are assigned by INEI, but in practice the codes
 given by RENIEC are used (the codes do not match). I have matched the codes
 and normalize the names, so this web app gives both codes whenever possible.
 
-Currently deployed at [Pagodabox][pagodabox-url] at the base URL:
+Demo deployed at [Pagodabox][pagodabox-url] at the base URL:
 
-	http://ubigeo-peru.pagodabox.com/
+http://ubigeo-peru.pagodabox.com/
 
 If you go to the base URL, you will see the documentation of the services.
 
@@ -53,34 +53,34 @@ All the output is in JSON with utf-8 character encoding
 ## Examples of use:
 
 * Find the location for the given UBIGEO (RENIEC code)
-  * http://ubigeo-peru.pagodabox.com/ubigeo/code/140133
+  * http://example.com/ubigeo/code/140133
 
 * Find the location for the given UBIGEO (INEI code)
-  * http://ubigeo-peru.pagodabox.com/ubigeo/code/010102/inei
+  * http://example.com/ubigeo/code/010102/inei
 
 * Find the location for the given UBIGEO (any code)
-  * http://ubigeo-peru.pagodabox.com/ubigeo/code/020601/cualquiera
+  * http://example.com/ubigeo/code/020601/cualquiera
 
 * Show the ubigeo for the given department
-  * http://ubigeo-peru.pagodabox.com/ubigeo/place/ancash
+  * http://example.com/ubigeo/place/ancash
 
 * Show the ubigeo for the given province
-  * http://ubigeo-peru.pagodabox.com/ubigeo/place/amazonas/RODRIGUEZ%20DE%20MENDOZA
+  * http://example.com/ubigeo/place/amazonas/RODRIGUEZ%20DE%20MENDOZA
 
 * Show the ubigeo for the given district
-  * http://ubigeo-peru.pagodabox.com/ubigeo/place/Lima/LIMA/lince
+  * http://example.com/ubigeo/place/Lima/LIMA/lince
 
 * Show all departments
-  * http://ubigeo-peru.pagodabox.com/ubigeo/departments
+  * http://example.com/ubigeo/departments
 
 * Show all provinces in a department
-  * http://ubigeo-peru.pagodabox.com/ubigeo/provinces/arequipa
+  * http://example.com/ubigeo/provinces/arequipa
 
 * Show all districts in a department's province
-  * http://ubigeo-peru.pagodabox.com/ubigeo/districts/callao/callao
+  * http://example.com/ubigeo/districts/callao/callao
 
 * Show all places that contain the fragment
-  * http://ubigeo-peru.pagodabox.com/ubigeo/like/rosa
+  * http://example.com/ubigeo/like/rosa
 
 
 # ubigeo-peru: Servicios REST para la búsqueda de UBIGEO
@@ -97,7 +97,7 @@ que este aplicativo web produce ambos códigos cuando esto es posible.
 El aplicativo se encuentra funcionando en [Pagodabox][pagodabox-url] en la URL
 de base:
 
-	http://ubigeo-peru.pagodabox.com/
+http://ubigeo-peru.pagodabox.com/
 
 Si navegas a la URL base, podrás ver la documentación de los servicios
 
@@ -135,34 +135,34 @@ Todas las salidas estan en JSON con codificación de caracteres utf-8
 ## Ejemplos de uso:
 
 * Locación dado un ubigeo, asume por defecto que es el UBIGEO de reniec
-  * http://ubigeo-peru.pagodabox.com/ubigeo/codigo/140133
+  * http://example.com/ubigeo/codigo/140133
 
 * Locación dado un ubigeo, indicando que es el de inei
-  * http://ubigeo-peru.pagodabox.com/ubigeo/codigo/010102/inei
+  * http://example.com/ubigeo/codigo/010102/inei
 
 * Locación dado un ubigeo, indicando que puede ser cualquiera
-  * http://ubigeo-peru.pagodabox.com/ubigeo/codigo/020601/cualquiera
+  * http://example.com/ubigeo/codigo/020601/cualquiera
 
 * Mostrar ubigeo del departamento
-  * http://ubigeo-peru.pagodabox.com/ubigeo/lugar/ancash
+  * http://example.com/ubigeo/lugar/ancash
 
 * Mostrar ubigeo de la provincia
-  * http://ubigeo-peru.pagodabox.com/ubigeo/lugar/amazonas/RODRIGUEZ%20DE%20MENDOZA
+  * http://example.com/ubigeo/lugar/amazonas/RODRIGUEZ%20DE%20MENDOZA
 
 * Mostrar ubigeo del distrito
-  * http://ubigeo-peru.pagodabox.com/ubigeo/lugar/Lima/LIMA/lince
+  * http://example.com/ubigeo/lugar/Lima/LIMA/lince
 
 * Mostrar todos los departamentos
-  * http://ubigeo-peru.pagodabox.com/ubigeo/departamentos
+  * http://example.com/ubigeo/departamentos
 
 * Mostrar todos las provincias en un departamento
-  * http://ubigeo-peru.pagodabox.com/ubigeo/provincias/arequipa
+  * http://example.com/ubigeo/provincias/arequipa
 
 * Mostrar todos los distritos en una provincia de un departamento
-  * http://ubigeo-peru.pagodabox.com/ubigeo/distritos/callao/callao
+  * http://example.com/ubigeo/distritos/callao/callao
 
 * Mostrar los lugares con nombres parecidos a un fragmento
-  * http://ubigeo-peru.pagodabox.com/ubigeo/parecido/rosa
+  * http://example.com/ubigeo/parecido/rosa
 
 
 [ubigeo-en-wiki]: http://en.wikipedia.org/wiki/UBIGEO
