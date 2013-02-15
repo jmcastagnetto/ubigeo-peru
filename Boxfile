@@ -3,8 +3,8 @@ global:
         - SLIM_MODE: production
 
 cache1:
-	type: memcached
-	name: result_cache
+    type: memcached
+    name: result_cache
 
 web1:
     # App settings
