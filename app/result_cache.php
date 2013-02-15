@@ -1,6 +1,6 @@
 <?php
 function get_from_cache( $key ) {
-    $m = new Memcache());
+    $m = new Memcache();
     $m->connect('tunnel.pagodabox.com',11211);
     $res = $m->get($key, MEMCACHE_COMPRESSED);
     $m->close();
