@@ -14,23 +14,27 @@ $service_doc['codigo|code'] =  array(
 
 $fcode = function ($ucode, $source='reniec') use ($app, $db)  {
     if (in_array($source, array('reniec', 'inei', 'cualquiera', 'any'))) {
-        $sql = 'select * from ubigeo where ';
-        switch ($source) {
-            case 'reniec' :
-                $sql .= ' reniec = :codigo';
-                break;
-            case 'inei' :
-                $sql .= ' inei = :codigo';
-                break;
-            case 'cualquiera' :
-            case 'any' :
-                $sql .= ' inei = :codigo or reniec = :codigo';
-                break;
+        $res = get_from_cache($ucode.$source);
+        if ( $res === false ) {
+            $sql = 'select * from ubigeo where ';
+            switch ($source) {
+                case 'reniec' :
+                    $sql .= ' reniec = :codigo';
+                    break;
+                case 'inei' :
+                    $sql .= ' inei = :codigo';
+                    break;
+                case 'cualquiera' :
+                case 'any' :
+                    $sql .= ' inei = :codigo or reniec = :codigo';
+                    break;
+            }
+            $stm = $db->prepare($sql);
+            $stm->bindValue(':codigo', $ucode, PDO::PARAM_STR);
+            $stm->execute();
+            $res = $stm->fetchAll();
+            save_to_cache( $ucode.$source, $res );
         }
-        $stm = $db->prepare($sql);
-        $stm->bindValue(':codigo', $ucode, PDO::PARAM_STR);
-        $stm->execute();
-        $res = $stm->fetchAll();
         if (empty($res)) {
             $app->getLog()->error('1:badcode:'.$ucode.':'.$source);
             $res = array('error'=>1, 'msg'=>'no existe el código de ubigeo que ha indicado');

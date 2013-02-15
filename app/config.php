@@ -10,3 +10,5 @@ $active_services = array (
         'provincias',
         'distritos',
         );
+
+include 'result_cache.php';

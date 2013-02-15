@@ -13,10 +13,15 @@ $service_doc['parecido|like'] =  array(
 );
 
 $fparecido = function ($name) use ($app, $db) {
-    $stm = $db->prepare('select * from ubigeo where nombre like :name');
-    $stm->bindValue(':name', strtoupper("%${name}%"), PDO::PARAM_STR);
-    $stm->execute();
-    $res = $stm->fetchAll();
+    $key = strtoupper($name);
+    $res = get_from_cache($key);
+    if ($res === false) {
+        $stm = $db->prepare('select * from ubigeo where nombre like :name');
+        $stm->bindValue(':name', strtoupper("%${name}%"), PDO::PARAM_STR);
+        $stm->execute();
+        $res = $stm->fetchAll();
+        save_to_cache($key, $res);
+    }
     if (empty($res)) {
         $app->getLog()->error('4:badsimilar:'.$name);
         $res = array('error'=>4, 'msg'=>'no existe un lugar con nombre parecido a '.$name);

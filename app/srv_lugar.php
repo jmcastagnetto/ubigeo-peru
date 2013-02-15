@@ -13,10 +13,15 @@ $service_doc['lugar|place'] =  array(
 );
 
 $flugar = function ($dpt, $prov='', $dist='') use ($app, $db) {
-    $stm = $db->prepare('select * from ubigeo where nombreCompleto = :lugar');
-    $stm->bindValue(':lugar', strtoupper("${dpt}/${prov}/${dist}"), PDO::PARAM_STR);
-    $stm->execute();
-    $res = $stm->fetchAll();
+    $key = strtoupper("${dpt}/${prov}/${dist}");
+    $res = get_from_cache($key);
+    if ($res === false) {
+        $stm = $db->prepare('select * from ubigeo where nombreCompleto = :lugar');
+        $stm->bindValue(':lugar', $key, PDO::PARAM_STR);
+        $stm->execute();
+        $res = $stm->fetchAll();
+        save_to_cache($key, $res);
+    }
     if (count($res) === 0) {
         $app->getLog()->error('3:badlocation:'.$dpt.'/'.$prov.'/'.$dist);
         $res = array('error'=>3, 'msg'=>'no existe el lugar que ha indicado');
