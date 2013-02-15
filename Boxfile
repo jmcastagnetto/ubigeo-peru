@@ -27,6 +27,7 @@ web1:
         - pdo_sqlite
         - session
         - memcache
+        - zip
     php_error_reporting: 30719 # Same as E_ALL
     php_display_errors: "1"
     php_short_open_tag: "0"
