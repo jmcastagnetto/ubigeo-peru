@@ -2,7 +2,7 @@ global:
     env:
         - SLIM_MODE: production
 
-cache1:
+cache2:
     type: memcached
     name: result_cache
 
