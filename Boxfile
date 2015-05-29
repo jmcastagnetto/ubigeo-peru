@@ -18,7 +18,7 @@ web1:
     apache_log_level: warn
 
     # PHP settings
-    php_version: 5.3.10
+    php_version: 5.4
     php_extensions:
         - apc
         - json
