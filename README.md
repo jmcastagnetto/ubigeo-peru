@@ -99,7 +99,7 @@ que este aplicativo web produce ambos códigos cuando esto es posible.
 El aplicativo se encuentra funcionando en [Pagodabox][pagodabox-url] en la URL
 de base:
 
-http://ubigeo-peru.pagodabox.com/
+http://ubigeo-peru.gopagoda.io/
 
 Si navegas a la URL base, podrás ver la documentación de los servicios
 
