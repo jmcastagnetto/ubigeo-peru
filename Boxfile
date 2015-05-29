@@ -9,16 +9,17 @@ cache2:
 web1:
     # App settings
     name: ubigeo-peru
-    shared_writable_dirs:
+    network_dirs:
         - var/logs
         - var/cache
 
     # Apache settings
     document_root: public
-    apache_log_level: warn
+    httpd_log_level: warn
 
     # PHP settings
-    php_version: 5.4
+    version: 5.4
+    stability: production
     php_extensions:
         - apc
         - json
@@ -42,8 +43,13 @@ web1:
     php_upload_max_filesize: "2M"
     php_max_file_uploads: 20
 
+build:
+    type: php
+    version: 5.4
+    stability: production
+    
     # Install Composer dependencies
-    after_build:
+    after_exec:
         - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install"
 
     # Clear template cache and old logs
