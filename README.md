@@ -1,6 +1,8 @@
-% ubigeo-peru
-% Jesus M. Castagnetto
-% 2013
+---
+title: ubigeo-peru
+author: Jesus M. Castagnetto
+date: 2013,2014
+---
 
 # ubigeo-peru: REST service for UBIGEO code search 
 
