@@ -3,7 +3,7 @@
 
 function get_from_cache( $key ) {
     $m = new Memcache();
-    $m->connect('tunnel.pagodabox.com',11211);
+    $m->connect(getenv("CACHE2_HOST"),getenv("CACHE2_PORT"));
     if ( $_SERVER['COMPRESS_CACHE'] === true ) {
         $res = $m->get($key, MEMCACHE_COMPRESSED);
     } else {
@@ -15,7 +15,7 @@ function get_from_cache( $key ) {
 
 function save_to_cache( $key, $res ) {
     $m = new Memcache();
-    $m->connect('tunnel.pagodabox.com',11211);
+    $m->connect(getenv("CACHE2_HOST"),getenv("CACHE2_PORT"));
     if ( $_SERVER['COMPRESS_CACHE'] === true ) {
         $op = $m->set($key, $res, MEMCACHE_COMPRESSED);
     } else {
