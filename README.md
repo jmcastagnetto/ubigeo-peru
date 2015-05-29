@@ -15,7 +15,7 @@ and normalize the names, so this web app gives both codes whenever possible.
 
 Demo deployed at [Pagodabox][pagodabox-url] at the base URL:
 
-http://ubigeo-peru.pagodabox.com/
+http://ubigeo-peru.gopagoda.io/
 
 If you go to the base URL, you will see the documentation of the services.
 
